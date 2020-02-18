@@ -44,7 +44,9 @@
     "webpack": "^4.37.0"
   },
   "dependencies": {
+    "@codemirror/next": "^0.3.0",
     "codemirror": "^5.51.0",
+    "feelin": "^0.21.0",
     "inferno": "^5.6.1"
   }
 }

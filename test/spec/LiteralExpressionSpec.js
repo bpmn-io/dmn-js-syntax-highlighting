@@ -48,7 +48,7 @@ describe('literal expression', function() {
       '.test-container .dmn-js-parent { height: 500px; }'
     );
 
-    insertCSS('codemirror/lib/codemirror.css', require('codemirror/lib/codemirror.css'));
+    insertCSS('style.css', '.codemirror { height: 100%; overflow: auto; }');
   });
 
   beforeEach(function(done) {
@@ -73,14 +73,13 @@ describe('literal expression', function() {
   });
 
 
-  it('should save changes in business object', function() {
+  it.only('should save changes in business object', function() {
 
     // given
-    const editor = viewer.get('codeEditor').getInstance();
+    const editor = viewer.get('codeEditor');
 
     // when
-    editor.setValue('text');
-    editor.refresh();
+    // editor.setContent('text');
 
     // then
     expect(literalExpression.text).to.eql('text');
@@ -90,11 +89,10 @@ describe('literal expression', function() {
   it('should allow to erase business object content', function() {
 
     // given
-    const editor = viewer.get('codeEditor').getInstance();
+    const editor = viewer.get('codeEditor');
 
     // when
-    editor.setValue('');
-    editor.refresh();
+    // editor.setContent('');
 
     // then
     expect(literalExpression.text).to.eql('');
