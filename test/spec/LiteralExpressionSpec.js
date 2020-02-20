@@ -73,13 +73,13 @@ describe('literal expression', function() {
   });
 
 
-  it.only('should save changes in business object', function() {
+  it('should save changes in business object', function() {
 
     // given
-    const editor = viewer.get('codeEditor');
+    const editor = viewer.get('codeEditor').getEditor();
 
     // when
-    // editor.setContent('text');
+    editor.setContent('text');
 
     // then
     expect(literalExpression.text).to.eql('text');
@@ -89,10 +89,10 @@ describe('literal expression', function() {
   it('should allow to erase business object content', function() {
 
     // given
-    const editor = viewer.get('codeEditor');
+    const editor = viewer.get('codeEditor').getEditor();
 
     // when
-    // editor.setContent('');
+    editor.setContent('');
 
     // then
     expect(literalExpression.text).to.eql('');
