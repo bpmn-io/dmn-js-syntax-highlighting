@@ -48,7 +48,7 @@ describe('literal expression', function() {
       '.test-container .dmn-js-parent { height: 500px; }'
     );
 
-    insertCSS('style.css', '.codemirror { height: 100%; overflow: auto; }');
+    insertCSS('style.css', '.textarea > div { height: 100%; overflow: auto; }');
   });
 
   beforeEach(function(done) {
