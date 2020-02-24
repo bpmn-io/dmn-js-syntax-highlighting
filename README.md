@@ -14,7 +14,7 @@ import {
   LiteralExpressionSyntaxHighlighting
 } from 'dmn-js-syntax-highlighting';
 
-import DmnModeler from 'bpmn-js/lib/Modeler';
+import DmnModeler from 'dmn-js/lib/Modeler';
 
 var modeler = new DmnModeler({
   decisionTable: {

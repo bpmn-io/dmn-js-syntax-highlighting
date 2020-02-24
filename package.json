@@ -2,8 +2,7 @@
   "name": "dmn-js-syntax-highlighting",
   "version": "0.1.0",
   "description": "FEEL syntax highlighting for dmn-js",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "main": "lib/index.js",
   "source": "lib/index.js",
   "scripts": {
     "all": "run-s lint test",
