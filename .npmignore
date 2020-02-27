@@ -1,7 +1,8 @@
-assets
 test
 lib
+tmp
 !dist/*
+.babelrc
 .eslintrc
 .eslintignore
 .travis.yml
