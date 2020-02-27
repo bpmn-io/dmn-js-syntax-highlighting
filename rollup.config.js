@@ -32,41 +32,7 @@ export default [
       }
     ]
   },
-  {
-    external: externals,
-    input: './lib/index.js',
-    plugins: pgl([
-      visualizer({
-        title: 'Bundle, unminified',
-        filename: 'tmp/bundlesize.html'
-      })
-    ]),
-    output: [
-      {
-        format: 'esm',
-        file: 'tmp/index.esm.js'
-      }
-    ]
-  },
-  {
-    external: externals,
-    input: './lib/index.js',
-    plugins: pgl([
-      terser(),
-      visualizer({
-        title: 'Bundle, minified',
-        filename: 'tmp/bundlesize.min.html',
-        sourcemap: true
-      })
-    ]),
-    output: [
-      {
-        format: 'esm',
-        file: 'tmp/index.esm.min.js',
-        sourcemap: true
-      }
-    ]
-  }
+  ...bundlesize(process.env.BUNDLESIZE)
 ];
 
 // helpers //////////////////////
@@ -87,5 +53,49 @@ function pgl(plugins = []) {
       include: ['node_modules/**']
     }),
     ...plugins
+  ];
+}
+
+function bundlesize(enabled) {
+  if (!enabled) {
+    return [];
+  }
+
+  return [
+    {
+      external: externals,
+      input: './lib/index.js',
+      plugins: pgl([
+        visualizer({
+          title: 'Bundle, unminified',
+          filename: 'tmp/bundlesize.html'
+        })
+      ]),
+      output: [
+        {
+          format: 'esm',
+          file: 'tmp/index.esm.js'
+        }
+      ]
+    },
+    {
+      external: externals,
+      input: './lib/index.js',
+      plugins: pgl([
+        terser(),
+        visualizer({
+          title: 'Bundle, minified',
+          filename: 'tmp/bundlesize.min.html',
+          sourcemap: true
+        })
+      ]),
+      output: [
+        {
+          format: 'esm',
+          file: 'tmp/index.esm.min.js',
+          sourcemap: true
+        }
+      ]
+    }
   ];
 }
