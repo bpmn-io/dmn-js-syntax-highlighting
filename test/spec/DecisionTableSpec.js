@@ -75,7 +75,7 @@ describe('decision table', function() {
   });
 
 
-  it('should work', function() {
+  it.only('should work', function() {
 
     // given
 
