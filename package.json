@@ -6,12 +6,13 @@
   "module": "dist/index.esm.js",
   "source": "lib/index.js",
   "scripts": {
-    "all": "run-s lint test dist",
+    "all": "run-s lint test build",
     "lint": "eslint .",
     "test": "karma start --no-auto-test --single-run",
     "dev": "karma start",
-    "dist": "rollup -c",
-    "bundlesize": "BUNDLESIZE=1 rollup -c"
+    "build": "rollup -c",
+    "bundlesize": "BUNDLESIZE=1 rollup -c",
+    "prepare": "run-s build"
   },
   "repository": {
     "type": "git",
