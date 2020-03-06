@@ -4,19 +4,10 @@ import commonJS from '@rollup/plugin-commonjs';
 import visualizer from 'rollup-plugin-visualizer';
 import { terser } from 'rollup-plugin-terser';
 
-const externals = [
-  'inferno',
-  'dmn-js',
-  'dmn-js-shared/lib/components/EditableComponent',
-  'dmn-js-shared/lib/util/ModelUtil',
-  'dmn-js-decision-table/lib/features/decision-rules',
-  'min-dash',
-  'table-js/lib/components'
-];
 
 export default [
   {
-    external: externals,
+    external,
     input: './lib/index.js',
     plugins: pgl(),
     output: [
@@ -63,7 +54,7 @@ function bundlesize(enabled) {
 
   return [
     {
-      external: externals,
+      external,
       input: './lib/index.js',
       plugins: pgl([
         visualizer({
@@ -79,7 +70,7 @@ function bundlesize(enabled) {
       ]
     },
     {
-      external: externals,
+      external,
       input: './lib/index.js',
       plugins: pgl([
         terser(),
@@ -98,4 +89,18 @@ function bundlesize(enabled) {
       ]
     }
   ];
+}
+
+/**
+ * Check if import is external.
+ *
+ * @param {string} name
+ */
+function external(name) {
+  return name && [
+    'inferno',
+    'dmn-js',
+    'min-dash',
+    'table-js'
+  ].some(ext => name.startsWith(ext));
 }
