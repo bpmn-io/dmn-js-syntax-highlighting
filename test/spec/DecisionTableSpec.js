@@ -8,7 +8,11 @@ import TestContainer from 'mocha-test-container-support';
 
 import diagramXML from './decision-table.dmn';
 
-import DecisionTableSyntaxHighlighting from '../../lib/decision-table';
+import {
+  CodeEditor,
+  DecisionTableSyntaxHighlighting,
+  MonacoEditor
+} from '../../lib';
 
 
 class DecisionTableEditor extends EditingManager {
@@ -30,6 +34,27 @@ class DecisionTableEditor extends EditingManager {
 describe('decision table', function() {
 
   let dmnJs;
+
+  function bootstrap(...additionalModules) {
+    return function(done) {
+      const testContainer = TestContainer.get(this);
+
+      testContainer.classList.add('test-container');
+
+      dmnJs = new DecisionTableEditor({
+        container: testContainer,
+        decisionTable: {
+          additionalModules: [
+            ...additionalModules,
+            DecisionTableSyntaxHighlighting
+          ]
+        }
+      });
+
+      dmnJs.importXML(diagramXML, done);
+    };
+  }
+
 
   before(() => {
     insertCSS('dmn-font.css',
@@ -57,32 +82,37 @@ describe('decision table', function() {
     );
   });
 
-  beforeEach(function(done) {
-    const testContainer = TestContainer.get(this);
 
-    testContainer.classList.add('test-container');
+  describe('codemirror', function() {
 
-    dmnJs = window.editor = new DecisionTableEditor({
-      container: testContainer,
-      decisionTable: {
-        additionalModules: [
-          DecisionTableSyntaxHighlighting
-        ]
-      }
+    beforeEach(bootstrap(CodeEditor));
+
+
+    it('should work', function() {
+
+      // given
+
+      // when
+
+      // then
+      expect(dmnJs).to.exist;
     });
-
-    dmnJs.importXML(diagramXML, done);
   });
 
 
-  it('should work', function() {
+  describe('monaco', function() {
 
-    // given
+    beforeEach(bootstrap(MonacoEditor));
 
-    // when
 
-    // then
-    expect(dmnJs).to.exist;
+    it('should work', function() {
+
+      // given
+
+      // when
+
+      // then
+      expect(dmnJs).to.exist;
+    });
   });
-
 });

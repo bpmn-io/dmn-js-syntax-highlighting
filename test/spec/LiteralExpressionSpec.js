@@ -8,7 +8,11 @@ import TestContainer from 'mocha-test-container-support';
 
 import diagramXML from './literal-expression.dmn';
 
-import LiteralExpressionSyntaxHighlighting from '../../lib/literal-expression';
+import {
+  CodeEditor,
+  LiteralExpressionSyntaxHighlighting,
+  MonacoEditor
+} from '../../lib';
 
 
 class LiteralExpressionEditor extends EditingManager {
@@ -30,6 +34,31 @@ class LiteralExpressionEditor extends EditingManager {
 describe('literal expression', function() {
 
   let dmnJs, literalExpression, testContainer, viewer;
+
+  function bootstrap(...additionalModules) {
+    return function(done) {
+      testContainer = TestContainer.get(this);
+
+      testContainer.classList.add('test-container');
+
+      dmnJs = new LiteralExpressionEditor({
+        container: testContainer,
+        literalExpression: {
+          additionalModules: [
+            LiteralExpressionSyntaxHighlighting,
+            ...additionalModules
+          ]
+        }
+      });
+
+      dmnJs.importXML(diagramXML, () => {
+        viewer = dmnJs.getActiveViewer();
+        literalExpression = viewer.getDecision().literalExpression;
+        done();
+      });
+    };
+  }
+
 
   before(() => {
     insertCSS('dmn-font.css',
@@ -53,51 +82,39 @@ describe('literal expression', function() {
     );
   });
 
-  beforeEach(function(done) {
-    testContainer = TestContainer.get(this);
 
-    testContainer.classList.add('test-container');
+  describe('codemirror', function() {
 
-    dmnJs = new LiteralExpressionEditor({
-      container: testContainer,
-      literalExpression: {
-        additionalModules: [
-          LiteralExpressionSyntaxHighlighting
-        ]
-      }
-    });
+    beforeEach(bootstrap(CodeEditor));
 
-    dmnJs.importXML(diagramXML, () => {
-      viewer = dmnJs.getActiveViewer();
-      literalExpression = viewer.getDecision().literalExpression;
-      done();
+
+    it('should work', function() {
+
+      // given
+      // const editor = viewer.get('codeEditor').getEditor();
+
+      // when
+      // editor.setContent('text');
+
+      // then
+      expect(literalExpression).to.exist;
     });
   });
 
 
-  it('should save changes in business object', function() {
+  describe('monaco', function() {
 
-    // given
-    const editor = viewer.get('codeEditor').getEditor();
+    beforeEach(bootstrap(MonacoEditor));
 
-    // when
-    editor.setContent('text');
 
-    // then
-    expect(literalExpression.text).to.eql('text');
+    it('should work', function() {
+
+      // given
+
+      // when
+
+      // then
+      expect(literalExpression).to.exist;
+    });
   });
-
-
-  it('should allow to erase business object content', function() {
-
-    // given
-    const editor = viewer.get('codeEditor').getEditor();
-
-    // when
-    editor.setContent('');
-
-    // then
-    expect(literalExpression.text).to.eql('');
-  });
-
 });

@@ -1,14 +1,12 @@
 'use strict';
 
-var path = require('path');
-
-var absoluteBasePath = path.resolve(__dirname);
+const webpack = require('./webpack.config');
 
 /* global process */
 
 // configures browsers to run test against
 // any of [ 'ChromeHeadless', 'Chrome', 'Firefox', 'IE', 'PhantomJS' ]
-var browsers =
+const browsers =
   (process.env.TEST_BROWSERS || 'ChromeHeadless')
     .replace(/^\s+|\s+$/, '')
     .split(/\s*,\s*/g)
@@ -25,7 +23,7 @@ var browsers =
       return browser;
     });
 
-var suite = 'test/suite.js';
+const suite = 'test/suite.js';
 
 
 module.exports = function(karma) {
@@ -64,31 +62,6 @@ module.exports = function(karma) {
     autoWatch: true,
     singleRun: false,
 
-    webpack: {
-      mode: 'development',
-      module: {
-        rules: [
-          {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: 'babel-loader'
-          },
-          {
-            test: /\.(css|dmn|svg)$/,
-            use: 'raw-loader'
-          }
-        ]
-      },
-      resolve: {
-        alias: {
-          inferno: 'inferno/dist/index.dev.esm.js',
-        },
-        modules: [
-          'node_modules',
-          absoluteBasePath
-        ]
-      },
-      devtool: 'eval-source-map'
-    }
+    webpack
   });
 };
