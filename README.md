@@ -10,6 +10,7 @@ Use as an additional module in your `DmnModeler`:
 
 ```javascript
 import {
+  CodeEditor,
   DecisionTableSyntaxHighlighting,
   LiteralExpressionSyntaxHighlighting
 } from 'dmn-js-syntax-highlighting';
@@ -17,6 +18,11 @@ import {
 import DmnModeler from 'dmn-js/lib/Modeler';
 
 var modeler = new DmnModeler({
+  common: {
+    additionalModules: [
+      CodeEditor
+    ]
+  },
   decisionTable: {
     additionalModules: [
       DecisionTableSyntaxHighlighting
