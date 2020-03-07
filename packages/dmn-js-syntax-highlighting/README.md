@@ -18,18 +18,15 @@ import {
 import DmnModeler from 'dmn-js/lib/Modeler';
 
 var modeler = new DmnModeler({
-  common: {
-    additionalModules: [
-      CodeEditor
-    ]
-  },
   decisionTable: {
     additionalModules: [
+      CodeEditor,
       DecisionTableSyntaxHighlighting
     ]
   },
   literalExpression: {
     additionalModules: [
+      CodeEditor,
       LiteralExpressionSyntaxHighlighting
     ]
   }

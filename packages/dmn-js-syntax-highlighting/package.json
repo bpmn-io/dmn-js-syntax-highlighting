@@ -1,0 +1,63 @@
+{
+  "name": "dmn-js-syntax-highlighting",
+  "version": "0.1.0",
+  "description": "FEEL syntax highlighting for dmn-js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "source": "lib/index.js",
+  "scripts": {
+    "all": "run-s lint test build",
+    "lint": "eslint .",
+    "test": "karma start --no-auto-test --single-run",
+    "dev": "karma start",
+    "build": "rollup -c",
+    "bundlesize": "BUNDLESIZE=1 rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bpmn-io/dmn-js-syntax-highlighting.git"
+  },
+  "author": "Maciej Barelkowski <https://github.com/barmac>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-inferno": "^5.1.0",
+    "chai": "^4.2.0",
+    "cpx": "^1.5.0",
+    "diagram-js": "^6.4.0",
+    "dmn-font": "^0.4.1",
+    "dmn-js": "^8.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-bpmn-io": "^0.8.2",
+    "inferno": "^5.6.1",
+    "karma": "^4.2.0",
+    "karma-chrome-launcher": "^3.0.0",
+    "karma-mocha": "^1.3.0",
+    "karma-sinon-chai": "^2.0.2",
+    "karma-webpack": "^4.0.2",
+    "mocha": "^6.2.0",
+    "mocha-test-container-support": "^0.2.0",
+    "npm-run-all": "^4.1.5",
+    "puppeteer": "^1.19.0",
+    "raw-loader": "^1.0.0",
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-terser": "^5.2.0",
+    "rollup-plugin-visualizer": "^3.3.1",
+    "sinon": "^7.3.2",
+    "sinon-chai": "^3.3.0",
+    "webpack": "^4.37.0"
+  },
+  "dependencies": {
+    "@codemirror/next": "0.3.0",
+    "feelin": "^0.21.0"
+  },
+  "peerDependencies": {
+    "dmn-js": "^8",
+    "inferno": "^5"
+  }
+}

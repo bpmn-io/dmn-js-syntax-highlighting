@@ -1,0 +1,27 @@
+{
+  "name": "dmn-js-editor-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-json": "^4.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-replace": "^2.3.1",
+    "rollup": "^1.31.1",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-string": "^3.0.0",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^5.1.2",
+    "svelte": "^3.0.0"
+  },
+  "dependencies": {
+    "dmn-js": "^8.0.1",
+    "dmn-js-syntax-highlighting": "^0.1.0",
+    "dmn-js-monaco-editor": "^0.1.0",
+    "sirv-cli": "^0.4.4"
+  }
+}

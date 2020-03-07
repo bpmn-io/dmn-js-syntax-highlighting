@@ -1,0 +1,9 @@
+test
+tmp
+!dist/*
+.babelrc
+.eslintrc
+.eslintignore
+.travis.yml
+karma.conf.js
+rollup.config.js
