@@ -40,4 +40,5 @@
   onDestroy(() => modeler.destroy());
 </script>
 
+<div class="version">2</div>
 <div id="container"></div>
