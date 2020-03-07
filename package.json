@@ -8,7 +8,7 @@
   "scripts": {
     "build": "lerna run build",
     "lerna-start": "lerna run start --scope dmn-js-editor-demo",
-    "start": "run-s build lerna-start",
+    "start": "run-s lerna-start",
     "postinstall": "lerna bootstrap"
   }
 }
