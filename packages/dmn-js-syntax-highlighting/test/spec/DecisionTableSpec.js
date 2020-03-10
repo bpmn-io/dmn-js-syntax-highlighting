@@ -8,7 +8,10 @@ import TestContainer from 'mocha-test-container-support';
 
 import diagramXML from './decision-table.dmn';
 
-import DecisionTableSyntaxHighlighting from '../../lib/decision-table';
+import {
+  CodeEditor,
+  DecisionTableSyntaxHighlighting
+} from '../../lib';
 
 
 class DecisionTableEditor extends EditingManager {
@@ -66,6 +69,7 @@ describe('decision table', function() {
       container: testContainer,
       decisionTable: {
         additionalModules: [
+          CodeEditor,
           DecisionTableSyntaxHighlighting
         ]
       }

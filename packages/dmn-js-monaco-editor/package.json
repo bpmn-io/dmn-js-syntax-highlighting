@@ -7,6 +7,7 @@
   "source": "lib/index.js",
   "sideEffects": false,
   "scripts": {
+    "test": "echo no tests implemented yet",
     "bundlesize": "BUNDLESIZE=1 run-s build",
     "build": "NODE_ENV=production webpack --config webpack.config.js"
   },

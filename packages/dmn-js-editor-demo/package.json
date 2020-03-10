@@ -4,6 +4,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
+    "test": "echo no tests implemented yet",
     "start": "sirv public --host 0.0.0.0"
   },
   "devDependencies": {
