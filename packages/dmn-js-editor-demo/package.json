@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "dmn-js": "^8.0.1",
-    "dmn-js-syntax-highlighting": "^0.1.0",
+    "dmn-js-syntax-highlighting": "file:../dmn-js-syntax-highlighting",
     "sirv-cli": "^0.4.4"
   }
 }
