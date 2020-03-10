@@ -7,7 +7,6 @@
   "source": "lib/index.js",
   "scripts": {
     "all": "run-s lint test build",
-    "lint": "eslint .",
     "test": "karma start --no-auto-test --single-run",
     "dev": "karma start",
     "build": "rollup -c",
@@ -31,8 +30,6 @@
     "diagram-js": "^6.4.0",
     "dmn-font": "^0.4.1",
     "dmn-js": "^8.0.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-bpmn-io": "^0.8.2",
     "inferno": "^5.6.1",
     "karma": "^4.2.0",
     "karma-chrome-launcher": "^3.0.0",

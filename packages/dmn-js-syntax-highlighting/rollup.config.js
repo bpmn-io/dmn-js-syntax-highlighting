@@ -30,8 +30,10 @@ export default [
 
 function pgl(plugins = []) {
   return [
+
     // resolve(),
     resolve({
+
       // pass custom options to the resolve plugin
       customResolveOptions: {
         moduleDirectory: 'node_modules'

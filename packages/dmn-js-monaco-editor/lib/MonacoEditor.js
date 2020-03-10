@@ -107,6 +107,7 @@ MonacoEditor.prototype.init = function() {
           ['for', 'for element in $1 return\n\t$0']
         ],
         Function: [
+
           // String
           [
             'substring(string, start position, length?)',
@@ -126,6 +127,7 @@ MonacoEditor.prototype.init = function() {
           ['ends with(string, match)', 'ends with($1, $2)'],
           ['matches(input, pattern, flags?)', 'matches($1, $2, $3)'],
           ['split(string, delimiter)', 'split($1, $2)'],
+
           // List
           ['list contains(list, element)', 'list contains($1, $2)'],
           ['count(list)', 'count($1)'],
@@ -152,6 +154,7 @@ MonacoEditor.prototype.init = function() {
           ['median(list)', 'median($1)'],
           ['stddev(list)', 'stddev($1)'],
           ['mode(list)', 'mode($1)'],
+
           // Number
           ['decimal(n, scale)', 'decimal($1, $2)'],
           ['floor(n)', 'floor($1)'],
@@ -163,6 +166,7 @@ MonacoEditor.prototype.init = function() {
           ['exp(number)', 'exp($1)'],
           ['odd(number)', 'odd($1)'],
           ['even(number)', 'even($1)'],
+
           // Boolean
           ['not(negand)', 'not($1)']
         ]

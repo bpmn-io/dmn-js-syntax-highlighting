@@ -7,8 +7,6 @@
   "source": "lib/index.js",
   "sideEffects": false,
   "scripts": {
-    "all": "run-s lint test build",
-    "lint": "eslint .",
     "bundlesize": "BUNDLESIZE=1 run-s build",
     "build": "NODE_ENV=production webpack --config webpack.config.js"
   },
@@ -24,8 +22,6 @@
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
-    "eslint": "^5.16.0",
-    "eslint-plugin-bpmn-io": "^0.8.2",
     "file-loader": "^5.1.0",
     "monaco-editor-webpack-plugin": "^1.9.0",
     "npm-run-all": "^4.1.5",

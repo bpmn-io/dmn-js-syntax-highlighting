@@ -4,7 +4,6 @@ var path = require('path');
 
 var absoluteBasePath = path.resolve(__dirname);
 
-/* global process */
 
 // configures browsers to run test against
 // any of [ 'ChromeHeadless', 'Chrome', 'Firefox', 'IE', 'PhantomJS' ]
